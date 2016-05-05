@@ -2,9 +2,13 @@
   "name": "es6.boilerplate",
   "version": "1.0.0",
   "description": "plain ECMA6 boilerplate node.js with tests using mocha",
-  "main": "index.js",
+  "main": "./app/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register -w tests"
+    "test": "mocha --compilers js:babel-core/register tests",
+    "tdd": "mocha --compilers js:babel-core/register -w tests",
+    "dev": "nodemon --exec npm test && babel-node app/index.js",
+    "prestart": "babel app --out-dir dist",
+    "start": "node dist/index.js"
   },
   "author": "Dmytro Shykaliuk (dshykaljuk@gmail.com)",
   "license": "ISC",
@@ -16,6 +20,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
+    "nodemon": "^1.9.2",
     "sinon": "^1.17.3"
   },
   "dependencies": {
